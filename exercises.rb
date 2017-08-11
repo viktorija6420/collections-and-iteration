@@ -15,3 +15,5 @@ print age.sort
 
 age << 0
 print fav_movie_and_year[:Forrest_Gump]
+
+print fav_colors1[-1]
