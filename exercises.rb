@@ -111,7 +111,10 @@ p fav_colors.insert(2, "blue", "purple")
 # 1999: The Matrix, Star Wars: Episode 1, The Mummy
 # 2009: Avatar, Star Trek, District 9
 # 2019: How to Train Your Dragon 3, Toy Story 4, Star Wars: Episode 9
-
+list_of_movies= {1999 => [The Matrix, Star Wars=> Episode 1, The Mummy]},
+   {2009 => [Avatar, Star Trek, District 9]}, {2019 => [How to Train Your
+    Dragon 3, Toy Story 4, Star Wars => Episode 9]}
+    p list_of_movies
 
 #exercise 6.1 Output the message "I will not skateboard in the halls" 20 times.
 # 30.times do print "I will not skateboard in the halls" end
