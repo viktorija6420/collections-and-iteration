@@ -111,18 +111,139 @@ p fav_colors.insert(2, "blue", "purple")
 # 1999: The Matrix, Star Wars: Episode 1, The Mummy
 # 2009: Avatar, Star Trek, District 9
 # 2019: How to Train Your Dragon 3, Toy Story 4, Star Wars: Episode 9
-list_of_movies= {1999 => [The Matrix, Star Wars=> Episode 1, The Mummy]},
-   {2009 => [Avatar, Star Trek, District 9]}, {2019 => [How to Train Your
-    Dragon 3, Toy Story 4, Star Wars => Episode 9]}
-    p list_of_movies
+list_of_movies = {
+:"1999" =>["The Matrix", "Star Wars\: Episode 1", "The Mummy"],
+:"2009" =>["Avatar", "Star Trek", "District 9"],
+:"2019" =>["How to Train Your Dragon 3", "Toy Story 4", "Star Wars\: Episode 9"]
+}
+p list_of_movies
+
+# exercise6.2 Make a new array that contains each row of the buttons on a phone.
+ # Each row should be an array.
+# The rows on a phone are: 1 2 3, 4 5 6, 7 8 9, * 0 #
+phone=[
+  [1,2,3], [4,5,6], [7,8,9], ["*",0,"#"]
+]
+p phone
+
+#Exercise6.3 Make a new array that contains information about three countries.
+ # Each country should be a hash that has a name, a continent, and whether
+  # or not it is an island.
+  three_countries=[
+    { name:"Macedonia",
+     continent:"Europe",
+     island:false
+    },
+    { name:"Madagascar",
+     continent:"Africa",
+     island: true
+    },
+     { name:"Indonesia",
+     continent:"Asia",
+     island: true
+    }
+   ]
+p three_countries
 
 #exercise 6.1 Output the message "I will not skateboard in the halls" 20 times.
-# 30.times do print "I will not skateboard in the halls" end
+20.times do print "I will not skateboard in the halls." end
 
 # exercise 6.2 Create an array consisting of the above message. It should appear
 # in the array 20 times.
-message= ["I will not skateboard in the halls"]
+message= ["I will not skateboard in the halls."]
 new_message = message * 20
 print "#{new_message}"
 
 # exercise 6.3 Create an array consisting of the numbers between 1 and 50.
+numbers_between_numbers = (1..50).to_a
+p numbers_between_numbers
+
+# Exercise 6.4 Use an each loop to find the sum of the numbers in the above array.
+sum = 0
+numbers_between_numbers.each do |current_number|
+  sum = current_number + sum
+end
+p sum
+
+# Exercise 6.5 Create a new array which has three of each number up to 50.
+# Ie. [1, 1, 1, 2, 2, 2, 3, 3, 3, ... , 50, 50, 50] and so on, up to 50.
+three_numbered_numbers = []
+# (1..50).to_a
+#make an empty array
+#put the numbers 1 to 50 in the array by looping
+# add 3 of the current_number as you loop
+numbers_between_numbers.each do |current_number|
+  3.times do
+    three_numbered_numbers.push(current_number)
+  end
+end
+puts "#{three_numbered_numbers}"
+
+#Exercise6.6 Make a new array out all of the countries from the hash in Exercise 6
+#that are not islands. Print out both arrays.
+not_islands = three_countries.select { |country| country[:island]==false}.to_a
+p not_islands
+p three_countries
+
+#exercise7.1
+#You want to add up your expenses for the year.
+# Create an array of numbers (integers or floats) that represents your expenses,
+ # eg:
+# [250, 7.95, 30.95, 16.50]
+#
+# Add up the numbers and output the result.
+#
+# Tip: you may need a variable to keep track of the sum total.
+#  What value should it start at?
+#
+# Put this code into a method. The method should take an array
+# as an argument and return the sum of the expenses
+# in the array. Call the method twice with different arrays.
+
+expences = [120, 3.50, 55, 409.40]
+puts expences.reduce(:+)
+def sum(arr)
+  arr.reduce(:+)
+end
+puts sum
+puts sum
+
+#exercise8
+#make a shopping list array
+grocery_list = ["bananas", "strawberries", "peanut butter", "bread" ]
+#exercise 8.1
+# Your next step should present your grocery list with an item on each line,
+# with an asterisk (*) in front of it
+grocery_list.each { |item| puts "* #{item}"}
+#8.1.1
+grocery_list << "rice"
+grocery_list.each {|item| puts "* #{item}"}
+#8.2
+# You lost count of how many things you need to pick up.
+#Better output the total number of items on your list.
+p grocery_list.count
+#8.3
+# Check to see if your list includes "bananas". If it does, output "You need
+#to pick up bananas". Otherwise, output "You don't need to pick up bananas today".
+if grocery_list.include?("bananas")
+puts "You don't need to pick up bananas."
+elsif
+  puts "You need to pick up  bananas."
+end
+
+#8.4
+# Display the second item in the list.
+#(Don't forget that arrays indices start at zero!
+print grocery_list[1]
+
+#8.5
+# It turns out that everything in this grocery store you're visiting is
+# stored alphabetically, so to better plan out what you
+# need to buy you should sort your grocery list and output it with
+#asterisks again.
+grocery_list.sort.each {|item| puts "* #{item}"}
+
+#8.6
+# After looking everywhere, you can't find the salmon.
+#Delete it from your list and redisplay the list one last time.
+grocery_list.delete("bananas"){|item| puts "* #{item}"}
